@@ -10,12 +10,28 @@
                 </div>
                 <div class="flex-row w-full">
                     <p class="flex-col">
-                        <b>Description:</b> {{meal.desc}}
+                        @if (meal.desc) {
+                            <b>Description:</b> {{meal.desc}}
+                        }
                     </p>
                 </div>
                 <div class="flex-row w-full">
-                    <a (click)="goToLink(meal.url)"><b>Open in new tab</b></a>
+                    <p class="flex-col">
+                        <b>Bento-able?</b> 
+                        @if (meal.bentoable) {
+                            Yes!
+                        } @else {
+                            No!
+                        }
+                    </p>
                 </div>
+                @if (meal.url) {
+                    <div class="flex-row w-full">
+                        <button class="p-2 text-bold border-2 border-purple-300 rounded-sm" (click)="goToLink(meal.url)">
+                            Open recipe link in new tab
+                        </button>
+                    </div>
+                }
             </div>
         }
     </div>
