@@ -1,0 +1,22 @@
+<div class="flex flex-col w-full h-full">
+    <div class="flex-row w-full h-full">
+        <button (click)="getMeal()" class="text-3xl w-fit p-4 bg-purple-300 rounded-sm">Click me to get a meal!</button>
+    </div>
+    <div class="flex-row w-full h-full">
+        @if (meal) {
+            <div class="flex-col w-full h-full">
+                <div class="flex-row w-full">
+                    <h3><b>Name:</b> {{meal.name}}</h3>
+                </div>
+                <div class="flex-row w-full">
+                    <p class="flex-col">
+                        <b>Description:</b> {{meal.desc}}
+                    </p>
+                </div>
+                <div class="flex-row w-full">
+                    <a (click)="goToLink(meal.url)"><b>Open in new tab</b></a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
