@@ -11,16 +11,30 @@ import { MealGeneratorService } from '../../services/meal-generator.service';
 })
 export class MealGeneratorComponent {
   meal?: Meal;
+  previousMeals: Meal[] = [];
 
   constructor(private _mealGeneratorService: MealGeneratorService) {
     _mealGeneratorService;
   }
 
-  goToLink(url?: string){
-    window.open(url, "_blank");
-}
+  goToLink(url?: string) {
+    window.open(url, '_blank');
+  }
 
   public getMeal() {
-    this.meal = this._mealGeneratorService.getMeal();
+    if (this.meal) {
+      this.previousMeals.push(this.meal);
+    }
+    let foundMeal = false;
+    let result: Meal = new Meal('');
+    while (!foundMeal) {
+      result = this._mealGeneratorService.getMeal();
+      if (!this.previousMeals.some((m) => m.name === result.name)) {
+        foundMeal = true;
+      }
+    }
+    if (result) {
+      this.meal = result;
+    }
   }
 }
