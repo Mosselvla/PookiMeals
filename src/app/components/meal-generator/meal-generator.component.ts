@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Meal } from '../../models/meal';
 import { MealGeneratorService } from '../../services/meal-generator.service';
+import { OpenAIService } from '../../services/open-ai.service';
 
 @Component({
   selector: 'app-meal-generator',
@@ -12,8 +13,10 @@ import { MealGeneratorService } from '../../services/meal-generator.service';
 export class MealGeneratorComponent {
   meal?: Meal;
   previousMeals: Meal[] = [];
+  openAiAnswer: string = '';
+  loadingOpenAi = false;
 
-  constructor(private _mealGeneratorService: MealGeneratorService) {
+  constructor(private _mealGeneratorService: MealGeneratorService, private _openAiService: OpenAIService) {
     _mealGeneratorService;
   }
 
@@ -36,5 +39,11 @@ export class MealGeneratorComponent {
     if (result) {
       this.meal = result;
     }
+  }
+
+  public async getSimilarMeals() {
+    this.loadingOpenAi = true;
+    this.openAiAnswer = await this._openAiService.requestSimilarMeals(this.previousMeals);
+    this.loadingOpenAi = false;
   }
 }

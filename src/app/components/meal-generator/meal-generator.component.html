@@ -1,8 +1,8 @@
 <div class="flex flex-col w-full h-full">
-    <div class="flex-row w-full h-full">
+    <div class="flex flex-row w-full h-full">
         <button (click)="getMeal()" class="text-3xl w-fit p-4 bg-purple-300 rounded-sm">Click me to get a meal!</button>
     </div>
-    <div class="flex-row w-full h-full">
+    <div class="flex flex-row w-full h-full">
         @if (meal) {
         <div class="flex-col w-full h-full">
             <div class="flex-row w-full">
@@ -35,23 +35,34 @@
         </div>
         }
     </div>
-    <div class="flex-row w-full h-full my-4 border-t-8 border-t-purple-100">
-        @if (previousMeals.length > 0) {
-        <h3><b>Previous meals</b></h3>
+    <div class="flex flex-row w-full h-full">
+        <div class="flex flex-col w-1/2 h-full my-4 border-t-8 border-t-purple-100">
+            @if (previousMeals.length > 0) {
+            <h3><b>Previous meals</b></h3>
             @for (meal of previousMeals; track meal.name) {
-                <div class="flex-row w-full h-full border-t-2 my-4 border-t-purple-100">
-                    <div class="flex-col">
-                        <p>{{ meal.name }}</p>
-                    </div>
-                    @if (meal.url) {
-                    <div class="flex-col">
-                        <button class="p-2 text-bold border-2 border-purple-300 rounded-sm" (click)="goToLink(meal.url)">
-                            Open recipe link in new tab
-                        </button>
-                    </div>
-                    }
-                </div>
+            <div class="flex flex-row w-full h-full border-t-2 my-4 border-t-purple-100">
+                <p>{{ meal.name }}</p>
+                @if (meal.url) {
+                <button class="p-2 text-bold border-2 border-purple-300 rounded-sm" (click)="goToLink(meal.url)">
+                    Open recipe link in new tab
+                </button>
+                }
+            </div>
             }
-        }
+            }
+        </div>
+        <div class="flex flex-col w-1/2 h-full my-4">
+            @if (previousMeals.length > 0) {
+            <button class="p-2 text-bold border-2 border-purple-300 rounded-sm" (click)="getSimilarMeals()">
+                Get similar meals from ChatGPT!
+            </button>
+            @if (loadingOpenAi) {
+                <span class="w-full h-full self-center loader"></span>
+            }
+            @if (openAiAnswer && !loadingOpenAi) {
+            <p class="whitespace-break-spaces">{{ openAiAnswer }}</p>
+            }
+            }
+        </div>
     </div>
 </div>
