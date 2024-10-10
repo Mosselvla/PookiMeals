@@ -9,7 +9,7 @@ export class OpenAIService {
   private client = new OpenAI({
     organization: 'org-J0oD1AOG8Nj3od4VpqdBn9L2',
     apiKey:
-      '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',
+      'API KEY GOES HERE',
     dangerouslyAllowBrowser: true,
   });
 
