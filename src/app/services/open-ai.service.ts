@@ -15,9 +15,11 @@ export class OpenAIService {
 
   constructor() {}
 
-  public async requestSimilarMeals(meals: Meal[]): Promise<string> {
+  public async requestSimilarMeals(meals: Meal[], isVegetarian?: boolean): Promise<string> {
     let promptText =
-      'ChatGPT, can you generate an alternative meal idea for each meal idea I have? I have these: ';
+      isVegetarian ?
+      'ChatGPT, can you generate an alternative vegetarian meal idea for each meal idea I have? I have these: ' :
+      'ChatGPT, can you generate an alternative meal idea for each meal idea I have? I have these: '
     meals.forEach((meal) => {
       promptText = promptText + meal.name + ', ';
     });
