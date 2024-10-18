@@ -522,6 +522,40 @@ export class MealGeneratorService {
         name: "Libanese arayes with salad",
         url: "https://youtube.com/shorts/oy5lV70UVXc?si=28kc5WEogsAuCzsS"
       },
+      // Week 41
+      {
+        name: "Slow cooker hachee with potato mash",
+        url: "https://www.ah.nl/allerhande/recept/R-R1192996/hachee-uit-de-slowcooker",
+        bentoable: true
+      },
+      {
+        name: "Cheeseburger kotthu roti",
+      },
+      {
+        name: "Vegetable soup with bread and soup sticks",
+      },
+      // Week 42
+      {
+        name: "Thai peanut noodle salad",
+        url: "https://www.drveganblog.com/thai-peanut-noodle-salad-recipe-meal-prep-friendly/",
+        bentoable: true
+      },
+      {
+        name: "Beef stew with garlic mash, vegetables and bread",
+        bentoable: true
+      },
+      // Week 43
+      {
+        name: "Cauliflower butter chicken",
+        bentoable: true
+      },
+      {
+        name: "Roasted tomato soup with chorizo grilled cheese",
+      },
+      {
+        name: "Nasi with oven chicken",
+        bentoable: true
+      },
     ];
   }
 
