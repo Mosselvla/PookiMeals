@@ -556,6 +556,54 @@ export class MealGeneratorService {
         name: "Nasi with oven chicken",
         bentoable: true
       },
+      // Week 44
+      {
+        name: "Pancakes",
+        bentoable: true
+      },
+      {
+        name: "Rigatoni with kale and sausages",
+        bentoable: true,
+        url: "https://www.ah.nl/allerhande/recept/R-R1193405/mezzi-rigatoni-met-boerenkool-ricotta-en-runderworstjes"
+      },
+      {
+        name: "Orzo with white beans and miso",
+        bentoable: true,
+        url: "https://www.ah.nl/allerhande/recept/R-R1199358/orzo-met-witte-bonen-venkel-en-miso-van-hugo-kennis"
+      },
+      {
+        name: "Potato patties with mint-pea puree",
+      },
+      {
+        name: "Leek quiche with cheese",
+        url: "https://www.ah.nl/allerhande/recept/R-R1198468/preitaart-met-kaas"
+      },
+      {
+        name: "Lamb curry with roti",
+        bentoable: true
+      },
+      // Week 45
+      {
+        name: "Thai Penang curry",
+        bentoable: true,
+        url: "https://www.youtube.com/shorts/DSGRNoSTvLg"
+      },
+      {
+        name: "Pork Adobo",
+        bentoable: true
+      },
+      {
+        name: "Boerenkool",
+        bentoable: true
+      },
+      {
+        name: "Noodles with tjauw min veggies and chicken cutlet",
+        bentoable: true
+      },
+      {
+        name: "Korma with chicken and paratha",
+        bentoable: true
+      },
     ];
   }
 
