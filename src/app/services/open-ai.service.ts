@@ -18,8 +18,8 @@ export class OpenAIService {
   public async requestSimilarMeals(meals: Meal[], isVegetarian?: boolean): Promise<string> {
     let promptText =
       isVegetarian ?
-      'ChatGPT, can you generate an alternative vegetarian meal idea for each meal idea I have? I have these: ' :
-      'ChatGPT, can you generate an alternative meal idea for each meal idea I have? I have these: '
+      'ChatGPT, can you generate an alternative vegetarian meal idea for each meal idea I have? Please make sure each meal has enough protein. I have these: ' :
+      'ChatGPT, can you generate an alternative meal idea for each meal idea I have? Please make sure each meal has enough protein. I have these: '
     meals.forEach((meal) => {
       promptText = promptText + meal.name + ', ';
     });
